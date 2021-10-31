@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="script.js" type="text/javascript"></script>
+    <link href="style.css" rel="stylesheet"/>
+    <title>Math Solver</title>
+</head>
+<body>
+    <h1>Math Solver</h1>
+    <img id="logo_img" src="images/logo.jpeg" alt="logo" />
+    <button type="submit" id="donate_btn" onclick="window.location.href='https://www.paypal.com/hr/home';">DONATE</button>
+    <div class="container">
+        <button id="1" type="button" class="btn btn-primary" onclick="Toggle('div1')">Quadratic equation solver</button>
+        <button id="2" type="button" class="btn btn-primary" onclick="Toggle('div2')">Matrix multiplication</button>
+        <button id="3" type="button" class="btn btn-primary" onclick="Toggle('div3')">System of equations solver</button>
+        <button id="4" type="button" class="btn btn-primary" onclick="Toggle('div4')">Sum calculator</button>
+    </div>
+    <div id="div0" class="container">
+        <p>This is online tool is a project of student from <i>Fakultet Elektrotehnike, Računarstva i Informacijskih tehnologija Osijek</i> (<a target="_blank" href="https://www.ferit.unios.hr/2021/"><b>FERIT</b></a>),<br/>
+        and is available for free use and distribution to everyone only for educational purposes.</p>
+        <p>Enjoy and have fun!</p>
+    </div>
+    <div id="div1" class="container">
+        <h2>Quadratic equation solver</h2>
+        <input type="number" onchange="SolveQEquation()" id="a"/>
+        <span> x<sup>2</sup> + </span>
+        <input type="number" onchange="SolveQEquation()" id="b"/>
+        <span> x + </span>
+        <input type="number" onchange="SolveQEquation()" id="c"/>
+        <p id="calculation_placeholder"></p>
+        <p>In algebra, a quadratic equation is any polynomial equation of the second degree with the following form:<h3>ax<sup>2</sup>+bx+c</h3></p>
+        <p>
+            where x is an unknown, a is referred to as the quadratic coefficient, b the linear coefficient,
+            and c the constant. The numerals a, b, and c are coefficients of the equation, and they represent known numbers.
+            For example, a cannot be 0, or the equation would be linear rather than quadratic. A quadratic equation can be
+            solved in multiple ways, including factoring, using the quadratic formula, completing the square, or graphing.
+            Only the use of the quadratic formula, as well as the basics of completing the square,
+            will be discussed here (since the derivation of the formula involves completing the square).
+            Below is the quadratic formula, as well as its derivation.
+        </p>
+        <img src="images/equation1.png" alt="equation"/>
+    </div>
+
+    <div id="div2" class="container">
+        <h2>Matrix multiplication</h2>
+        <p>
+            The main condition of matrix multiplication is that the number of columns of the 1st matrix
+            must equal to the number of rows of the 2nd one.<br />
+            As a result of multiplication you will get a new matrix that has the same quantity of rows as
+            the 1st one has and the same quantity of columns as the 2nd one.<br />
+            For example if you multiply a matrix of 'n' x 'k' by 'k' x 'm' size you'll get a
+            new one of 'n' x 'm' dimension.<br /><br />
+            To understand matrix multiplication better input any example and examine the solution.
+        </p>
+        <span>Matrix A dimension:</span>
+        <input type="number" min="1" max="100" id="A_cols" onchange="GenerateMatrices()" />
+        <span>x</span>
+        <input type="number" min="1" max="100" id="A_rows" onchange="SetDimension(this, 'B_cols'), GenerateMatrices()" />
+        <br /><span>Matrix B dimension:</span>
+        <input type="number" min="1" max="100" id="B_cols" onchange="SetDimension(this, 'A_rows'), GenerateMatrices()" />
+        <span>x</span>
+        <input type="number" min="1" max="100" id="B_rows" onchange="GenerateMatrices()" /><br /><br />
+        <p id="matrix_placeholder"></p>
+        <button type="button" class="btn btn-success" onclick="Calculate()">Calculate</button>
+        <p id="solution_placeholder"></p>
+    </div>
+
+    <div id="div3" class="container">
+        <h2>System of equations solver</h2>
+    </div>
+
+    <div id="div4" class="container">
+        <h2>Sum calculator</h2>
+    </div>
+
+    <footer>
+        <p id="ownership">Made by: Leon Gal</p>
+    </footer>
+</body>
+</html>
