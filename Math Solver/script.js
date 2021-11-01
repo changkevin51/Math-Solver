@@ -7,13 +7,16 @@ function SolveQEquation() {
     if (Math.pow(b, 2) - 4 * a * c < 0) {
         var real = -b / (2 * a);
         var imag = Math.sqrt(-Math.pow(b, 2) + 4 * a * c) / (2 * a);
-        resultElement.innerHTML = "x<sub>1</sub>= " + real.toFixed(5) + " + " + imag.toFixed(5) + "i" +
-            "    x<sub>2</sub>= " + real.toFixed(5) + " - " + imag.toFixed(5) + "i";
+        resultElement.innerHTML = "x<sub>1</sub> = " + real.toFixed(5) + " + " + imag.toFixed(5) + "i" +
+            "    x<sub>2</sub> = " + real.toFixed(5) + " - " + imag.toFixed(5) + "i";
     }
+    else if (Math.pow(b, 2) - 4 * a * c == 0) {
+        resultElement.innerHTML = "x<sub>1</sub> = x<sub>2</sub> = " + (-b / (2 * a)).toFixed(5);
+	}
     else {
         var x1 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
         var x2 = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
-        resultElement.innerHTML = "x<sub>1</sub>= " + x1.toFixed(5) + "    x<sub>2</sub>= " + x2.toFixed(5);
+        resultElement.innerHTML = "x<sub>1</sub> = " + x1.toFixed(5) + "    x<sub>2</sub> = " + x2.toFixed(5);
 	}
 }
 function Toggle(element) {
@@ -101,4 +104,31 @@ function Calculate() {
     }
     string += "</table>";
     p.innerHTML = string;
+}
+function CalculateSum() {
+    var input = document.getElementById("equation_input").value;
+    var upper = document.getElementById("upper_limit").value;
+    var lower = document.getElementById("lower_limit").value;
+    var p = document.getElementById("sum_result");
+    
+    if (lower > upper) {
+        var temp = lower;
+        lower= upper;
+        upper= temp;
+    }
+    input = input.toLowerCase();
+    input = input.replace(/x/g, 'i');
+    console.log("Input: " + input);
+    var sum = 0;
+    for (var i = lower; i <= upper; i++) {
+        console.log("Sum=" + sum);
+		try {
+            sum += parseInt(eval(input));
+        } catch (e) {
+            alert("Invalid expression, unable to evaulate!");
+            return;
+            console.log("Error");
+        }
+    }
+    p.innerHTML = "Result: " + sum;
 }

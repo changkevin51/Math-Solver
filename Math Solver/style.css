@@ -10,6 +10,25 @@ h1 {
     display: inline;
 }
 
+#upper_limit {
+    position: relative;
+    right: 105px;
+}
+
+#lower_limit, #span_limit{
+    position: relative;
+    right: 125px;
+}
+
+#equation_input {
+    width: 200px;
+    height:60px;
+}
+
+#sigma_icon {
+    width:60px;
+}
+
 #donate_btn {
     border-radius: 40px 40px;
     float: left;
@@ -65,7 +84,7 @@ div.container {
     background-color: aquamarine;
 }
 
-#calculation_placeholder {
+#calculation_placeholder, #sum_result{
     font-weight:bold;
     font-size: 24px;
     margin-top:10px;

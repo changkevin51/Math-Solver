@@ -16,14 +16,15 @@
     <div class="container">
         <button id="1" type="button" class="btn btn-primary" onclick="Toggle('div1')">Quadratic equation solver</button>
         <button id="2" type="button" class="btn btn-primary" onclick="Toggle('div2')">Matrix multiplication</button>
-        <button id="3" type="button" class="btn btn-primary" onclick="Toggle('div3')">System of equations solver</button>
-        <button id="4" type="button" class="btn btn-primary" onclick="Toggle('div4')">Sum calculator</button>
+        <button id="3" type="button" class="btn btn-primary" onclick="Toggle('div3')">Sum calculator</button>
+        <button id="4" type="button" class="btn btn-primary" onclick="Toggle('div4')">System of equations solver</button>
     </div>
     <div id="div0" class="container">
         <p>This is online tool is a project of student from <i>Fakultet Elektrotehnike, Računarstva i Informacijskih tehnologija Osijek</i> (<a target="_blank" href="https://www.ferit.unios.hr/2021/"><b>FERIT</b></a>),<br/>
         and is available for free use and distribution to everyone only for educational purposes.</p>
         <p>Enjoy and have fun!</p>
     </div>
+
     <div id="div1" class="container">
         <h2>Quadratic equation solver</h2>
         <input type="number" onchange="SolveQEquation()" id="a"/>
@@ -63,22 +64,29 @@
         <br /><span>Matrix B dimension:</span>
         <input type="number" min="1" max="100" id="B_cols" onchange="SetDimension(this, 'A_rows'), GenerateMatrices()" />
         <span>x</span>
-        <input type="number" min="1" max="100" id="B_rows" onchange="GenerateMatrices()" /><br /><br />
+        <input type="number" min="1" max="100" id="B_rows" onchange="GenerateMatrices()" /><br/><br/>
         <p id="matrix_placeholder"></p>
         <button type="button" class="btn btn-success" onclick="Calculate()">Calculate</button>
         <p id="solution_placeholder"></p>
     </div>
 
     <div id="div3" class="container">
-        <h2>System of equations solver</h2>
+        <h2>Sum calculator</h2>
+        <p>Please use 'x' as variable name in your equation input. (example: 2x+1)</p><br/>
+            <input type="number" id="upper_limit" value="10" onchange="CalculateSum()"/><br/>
+            <img src="images/sigma.png" alt="sigma" id="sigma_icon"/>
+            <input type="text" value="x**2" id="equation_input" onchange="CalculateSum()"/><br/>
+            <span id="span_limit">x = </span>
+            <input type="number" id="lower_limit" value="0" onchange="CalculateSum()"/><br/><br/>
+            <p id="sum_result"></p>
     </div>
 
     <div id="div4" class="container">
-        <h2>Sum calculator</h2>
+        <h2>System of equations solver</h2>
     </div>
 
     <footer>
-        <p id="ownership">Made by: Leon Gal</p>
+        <p id="ownership">Made by: <a target="_blank" href="https://github.com/LG64BIT">Leon Gal</a></p>
     </footer>
 </body>
 </html>
