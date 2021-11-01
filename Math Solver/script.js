@@ -1,10 +1,12 @@
-// JavaScript source code
 function SolveQEquation() {
     var a = document.getElementById("a").value;
     var b = document.getElementById("b").value;
     var c = document.getElementById("c").value;
     var resultElement = document.getElementById("calculation_placeholder");
-    if (Math.pow(b, 2) - 4 * a * c < 0) {
+    if (a == 0) {
+        resultElement.innerHTML = "x = " + (-c/b).toFixed(5);
+	}
+    else if (Math.pow(b, 2) - 4 * a * c < 0) {
         var real = -b / (2 * a);
         var imag = Math.sqrt(-Math.pow(b, 2) + 4 * a * c) / (2 * a);
         resultElement.innerHTML = "x<sub>1</sub> = " + real.toFixed(5) + " + " + imag.toFixed(5) + "i" +
@@ -36,10 +38,10 @@ function SetDimension(element, targetID) {
     target.value = element.value;
 }
 function GenerateMatrices() {
-    var Acols = document.getElementById("A_cols").value;
-    var Arows = document.getElementById("A_rows").value;
-    var Bcols = document.getElementById("B_cols").value;
-    var Brows = document.getElementById("B_rows").value;
+    var Acols = parseInt(document.getElementById("A_cols").value);
+    var Arows = parseInt(document.getElementById("A_rows").value);
+    var Bcols = parseInt(document.getElementById("B_cols").value);
+    var Brows = parseInt(document.getElementById("B_rows").value);
     p = document.getElementById("matrix_placeholder");
     var string = "<span>A = </span><table>";
     for (var i = 0; i < Acols; i++) {
@@ -62,10 +64,10 @@ function GenerateMatrices() {
     p.innerHTML = string;
 }
 function Calculate() {
-    var Acols = document.getElementById("A_cols").value;
-    var Arows = document.getElementById("A_rows").value;
-    var Bcols = document.getElementById("B_cols").value;
-    var Brows = document.getElementById("B_rows").value;
+    var Acols = parseInt(document.getElementById("A_cols").value);
+    var Arows = parseInt(document.getElementById("A_rows").value);
+    var Bcols = parseInt(document.getElementById("B_cols").value);
+    var Brows = parseInt(document.getElementById("B_rows").value);
     var p = document.getElementById("solution_placeholder");
     var A = new Array();
     var B = new Array();
@@ -107,10 +109,9 @@ function Calculate() {
 }
 function CalculateSum() {
     var input = document.getElementById("equation_input").value;
-    var upper = document.getElementById("upper_limit").value;
-    var lower = document.getElementById("lower_limit").value;
+    var upper = parseInt(document.getElementById("upper_limit").value);
+    var lower = parseInt(document.getElementById("lower_limit").value);
     var p = document.getElementById("sum_result");
-    
     if (lower > upper) {
         var temp = lower;
         lower= upper;
@@ -118,16 +119,13 @@ function CalculateSum() {
     }
     input = input.toLowerCase();
     input = input.replace(/x/g, 'i');
-    console.log("Input: " + input);
     var sum = 0;
     for (var i = lower; i <= upper; i++) {
-        console.log("Sum=" + sum);
 		try {
-            sum += parseInt(eval(input));
+            sum += parseFloat(eval(input));
         } catch (e) {
             alert("Invalid expression, unable to evaulate!");
             return;
-            console.log("Error");
         }
     }
     p.innerHTML = "Result: " + sum;
