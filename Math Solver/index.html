@@ -4,23 +4,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="script.js" type="text/javascript"></script>
-    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet" />
     <title>Math Solver</title>
 </head>
 <body>
     <h1>Math Solver</h1>
-    <img id="logo_img" src="images/logo.jpeg" alt="logo" />
-    <button type="submit" id="donate_btn" onclick="window.location.href='https://www.paypal.com/hr/home';">DONATE</button>
-    <div class="container">
+    <div class="container" id="firstContainer">
         <button id="1" type="button" class="btn btn-primary" onclick="Toggle('div1')">Quadratic equation solver</button>
         <button id="2" type="button" class="btn btn-primary" onclick="Toggle('div2')">Matrix multiplication</button>
         <button id="3" type="button" class="btn btn-primary" onclick="Toggle('div3')">Sum calculator</button>
-        <button id="4" type="button" class="btn btn-primary" onclick="Toggle('div4')">System of equations solver</button>
-    </div>
+    </div><br />
     <div id="div0" class="container">
-        <p>This is online tool is a project of student from <i>Fakultet Elektrotehnike, Računarstva i Informacijskih tehnologija Osijek</i> (<a target="_blank" href="https://www.ferit.unios.hr/2021/"><b>FERIT</b></a>),<br/>
+        <p>This is online tool is a project of student from <i>Faculty of Electrical Engineering, 
+        Computer Science and Information Technology Osijek</i> (<a target="_blank" 
+        href="https://www.ferit.unios.hr/2021/"><b>FERIT</b></a>),<br/>
         and is available for free use and distribution to everyone only for educational purposes.</p>
         <p>Enjoy and have fun!</p>
     </div>
@@ -73,20 +75,21 @@
     <div id="div3" class="container">
         <h2>Sum calculator</h2>
         <p>Please use 'x' as variable name in your equation input. (example: 2x+1)</p><br/>
-            <input type="number" id="upper_limit" value="10" onchange="CalculateSum()"/><br/>
-            <img src="images/sigma.png" alt="sigma" id="sigma_icon"/>
-            <input type="text" value="x**2" id="equation_input" onchange="CalculateSum()"/><br/>
-            <span id="span_limit">x = </span>
-            <input type="number" id="lower_limit" value="0" onchange="CalculateSum()"/><br/><br/>
-            <p id="sum_result"></p>
+        <input type="number" id="upper_limit" value="10" onchange="CalculateSum()"/><br/>
+        <img src="images/sigma.png" alt="sigma" id="sigma_icon"/>
+        <input type="text" value="x**2" id="equation_input" onchange="CalculateSum()"/><br/>
+        <span id="span_limit">x = </span>
+        <input type="number" id="lower_limit" value="1" onchange="CalculateSum()"/><br/><br/>
+        <p id="sum_result"></p>
+        <p>In mathematics, summation is the addition of a sequence of any kind of numbers, 
+        called addends or summands; the result is their sum or total.</p>
     </div>
-
-    <div id="div4" class="container">
-        <h2>System of equations solver</h2>
-    </div>
-
     <footer>
-        <p id="ownership">Made by: <a target="_blank" href="https://github.com/LG64BIT">Leon Gal</a></p>
+        <p id="ownership">
+            Made by: <a target="_blank" href="https://github.com/LG64BIT">Leon Gal</a><br />
+            Have problems? <a target="_blank" href="emailPage.html">Send us an email</a>
+        </p>
+        <button type="submit" class="btn btn-primary" id="donate_btn" onclick="window.location.href='donate.html';">DONATE</button>
     </footer>
 </body>
 </html>

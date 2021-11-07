@@ -26,7 +26,6 @@ function Toggle(element) {
     document.getElementById('div1').style.display = 'none';
     document.getElementById('div2').style.display = 'none';
     document.getElementById('div3').style.display = 'none';
-    document.getElementById('div4').style.display = 'none';
     var x = document.getElementById(element);
     if (x.style.display === "block")
         x.style.display = "none";
