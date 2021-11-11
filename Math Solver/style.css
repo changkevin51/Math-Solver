@@ -1,12 +1,13 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+body {
     text-align: center;
     background-color: lightblue;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 h1 {
     font-size: 48px;
     margin: 20px 5px 20px 5px;
-    /*display: inline;*/
 }
 
 #upper_limit {
@@ -33,6 +34,7 @@ h1 {
     border-width: 3px;
     background-color: lightblue;
     color:black;
+    margin-bottom: 10px;
 }
 
 #donate_btn:hover {

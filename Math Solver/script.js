@@ -94,7 +94,6 @@ function Calculate() {
             for (k = 0; k < Arows; k++)
                 C[i*Brows + j] += A[i*Arows + k] * B[k*Brows + j];
 		}
-
     var string = "<br/><span>A x B = </span><table>";
     for (var i = 0; i < Acols; i++) {
         string += "<tr>";
