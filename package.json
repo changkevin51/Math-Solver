@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "algebra.js": "^0.2.6",
+    "mathsteps": "^0.2.0"
+  },
+  "name": "math_solver",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --open",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LG64BIT/Math_Solver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LG64BIT/Math_Solver/issues"
+  },
+  "homepage": "https://github.com/LG64BIT/Math_Solver#readme",
+  "description": "",
+  "type": "module"
+}

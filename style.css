@@ -1,0 +1,411 @@
+:root {
+    --primary-color: #7c3aed;
+    --secondary-color: #a78bfa;
+    --background-color: #f8fafc;
+    --card-background: rgba(255, 255, 255, 0.95);
+    --text-color: #1e293b;
+    --success-color: #059669;
+    --error-color: #dc2626;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #0f172a;
+        --card-background: #1e293b;
+        --text-color: #f1f5f9;
+    }
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0 3rem;
+    color: white;
+}
+
+header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+body {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.equation-editor, .result-section {
+    background: var(--card-background);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#equationDisplay {
+    min-height: 80px;
+    border: 2px solid rgba(108, 92, 231, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    background: rgba(108, 92, 231, 0.05);
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.math-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.math-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: #6d28d9;
+}
+
+.math-btn i {
+    font-size: 0.9em;
+}
+
+.math-btn#clearBtn {
+    background-color: var(--error-color);
+}
+
+.math-btn#clearBtn:hover {
+    background-color: #c62828;
+}
+
+.solve-btn {
+    background-color: var(--success-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.solve-btn:hover {
+    background-color: #00997b;
+}
+
+.result-section {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 2rem;
+}
+
+/* Remove or comment out the old #graphContainer styles */
+/*
+#graphContainer {
+    height: 400px;
+    width: 100%;
+    border-radius: 1rem;
+    background: var(--card-background);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;  /* Add this to ensure Desmos fits nicely */
+
+*/
+
+#ggb-element {
+    height: 400px;
+    width: 100%;
+    border-radius: 1rem;
+    background: var(--card-background);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.error-message {
+    visibility: hidden;
+    color: var(--error-color);
+    background: rgba(214, 48, 49, 0.1);
+    border: 1px solid rgba(214, 48, 49, 0.2);
+}
+
+.equation-history {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(108, 92, 231, 0.05);
+}
+
+.history-item {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.history-item:hover {
+    background: rgba(108, 92, 231, 0.1);
+}
+
+.input-section {
+    margin-bottom: 1.5rem;
+}
+
+.input-section label, .preview-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+#equationInput {
+    width: 90%;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+#equationInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.preview-box {
+    min-height: 70px;
+    padding: 1.25rem;
+    background: var(--background-color);
+    border-radius: 12px;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.validation-message {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--error-color);
+    min-height: 1.2em;
+}
+
+.symbol-btn {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.solution-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.format-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+}
+
+.format-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: #6d28d9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 20px;
+    min-width: 300px;
+    box-shadow: var(--shadow-lg);
+}
+
+.variable-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.variable-btn {
+    padding: 0.75rem 1.25rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.variable-btn:hover {
+    background: #6d28d9;
+    transform: translateY(-1px);
+}
+
+.solution-steps {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.step {
+    margin: 15px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.step-number {
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.step-explanation {
+    color: #a09f9f;
+    margin: 5px 0;
+}
+
+.step-equation {
+    margin: 10px 0;
+}
+
+.step-arrow {
+    text-align: center;
+    color: #666;
+    margin: 5px 0;
+}
+
+.step-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 3px solid var(--primary-color);
+    background-color: rgba(124, 58, 237, 0.05);
+    border-radius: 0 12px 12px 0;
+}
+
+.step-description {
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+section {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5b4bc4;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
+}
