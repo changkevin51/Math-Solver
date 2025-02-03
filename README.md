@@ -21,11 +21,6 @@ A sophisticated web-based mathematical equation solver that provides step-by-ste
   - MathJax for LaTeX rendering
   - Mathsteps for step-by-step solutions
 - **Visualization**: GeoGebra for graphing
-- **Styling**: 
-  - Custom CSS with CSS variables
-  - Responsive design
-  - Font Awesome icons
-  - Google Fonts (Poppins, Space Grotesk)
 
 ## Usage
 
